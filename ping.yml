@@ -1,0 +1,12 @@
+- name: simple ping test
+  hosts: all
+  sources:
+    - name: debug-timer
+      ansible.eda.time:
+        delay: 10
+  rules:
+    - name: say hello
+      condition: event is defined
+      action:
+        run_playbook:
+          name: ping_playbook.yml
